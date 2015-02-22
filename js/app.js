@@ -12,7 +12,7 @@ var guessCount = 0;
 $(".new").click(function() {
 	guessCount = 0
 	$("#count").html(guessCount)
-	$("#guessList li").remove();
+	//$("#guessList li").remove();
 });
 
 
@@ -31,14 +31,17 @@ var checkNumber = function(randomNumber, userNumber){
 }
 
 $("#guessButton").click(function() {
+	
 	var userNumber = $("#userGuess").val();
-	console.log(userNumber);
 	var result = checkNumber(randomNumber, userNumber);
 	$("#feedback").text(result);
-	guessCount = guessCount + 1
-	$("#count").html(guessCount);
-	$("#guessList").prepend("<li>" + userNumber + "</li>");
+	
 
+
+	guessCount = guessCount + 1;
+	$("#count").html(guessCount);
+	
+	$("ul#guessList").append("<li>" + userNumber + "</li>");
 });
 
 
@@ -55,4 +58,3 @@ $("a.close").click(function(){
 });
   
 });
-
